@@ -1,0 +1,36 @@
+version: 0.2
+env:
+  variables:
+    PROJECT: aws_demo
+    DOTNET_CORE_RUNTIME: 3.1
+    
+phases:
+  install:
+    runtime-versions:
+      dotnet: ${DOTNET_CORE_RUNTIME}
+      
+  pre_build:
+    commands:
+      - echo Restore started on `date`
+      - dotnet restore
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - dotnet build -c Release
+    
+  post_build:
+    commands:
+      - echo Publish started on `date`
+      - dotnet publish -c Release -r win10-x64 -o ./build_output ${PROJECT}.csproj --self-contained false
+      - ls -l
+      - cp appspec.yml ./build_output
+      - mkdir ./build_output/scripts
+      - cp scripts/* ./build_output/scripts/
+      - ls -l build_output/scripts
+    
+artifacts:
+  files:
+    - '**/*'
+  base-directory: ./build_output
+  discard-paths: yes

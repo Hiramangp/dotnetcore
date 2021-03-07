@@ -1,0 +1,20 @@
+version: 0.0
+os: windows
+files:
+  - source: \build_output
+    destination: c:\aws_demo
+hooks:
+  ApplicationStop:
+    - location: server_stop.bat
+      timeout: 300
+    #  runas: root
+
+  BeforeInstall:
+    - location: server_clear.bat
+      timeout: 300
+    #  runas: root
+
+  ApplicationStart:
+    - location: server_start.bat
+      timeout: 300
+    #  runas: root
