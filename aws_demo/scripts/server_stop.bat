@@ -1,1 +1,1 @@
-taskkill /F /IM mylinuxTestApp.exe
+taskkill /F /IM aws_demo.exe
