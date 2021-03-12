@@ -20,7 +20,7 @@ namespace aws_demo.Controllers
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return "hell55 ?www ";
+            return "hello ?www ";
         }
         // GET api/values/5
         [HttpGet("{id}")]
