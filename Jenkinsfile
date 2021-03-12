@@ -1,7 +1,6 @@
 pipeline
-{
-       
-    stage('FTA'){
+{    
+     stage('FTA'){
     	echo 'Now performing FTA'    	
     	println 'Success'
     }
