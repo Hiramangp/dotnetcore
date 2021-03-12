@@ -1,8 +1,5 @@
 pipeline{
-   stages {    
-	   stage('Cleanup') {
-		deleteDir()
-		}
+   stages {   
     stage('Checkout')
     {
     	git branch: 'main', credentialsId: 'srsave', url: 'https://github.com/srsave/AspWithNUnit.git'
