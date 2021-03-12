@@ -28,7 +28,7 @@ namespace aws_demo.Controllers
         {
             return "value";
         }
-
+  
         // POST api/values 
         [HttpPost]
         public void Post([FromBody] string value)
