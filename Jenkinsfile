@@ -30,13 +30,23 @@ pipeline {
        		println 'Success'
 		}
     	}
-	    stage('Nuint  Testing'){
-		steps {  
-    		echo 'Now performing FTA'		
-    		build 'Nunit'		
-    		println 'Success'
-		}
-   	 }
+	   stage("Nunit"){
+      		steps {
+        	script {
+          	try {
+            	echo 'Now performing Nunit'
+			build 'Nunit'
+			println 'Success'
+          } catch(err) {
+		  echo "There are some errors in your unit tests!"
+			//build_ok = false
+			echo err.toString()
+			currentBuild.result = "FAILURE"
+			//createJira()
+		  }    
+       		 }
+      		}
+   	}
 	    stage("Deploy"){
       steps {
         script {
