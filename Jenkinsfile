@@ -16,7 +16,7 @@ pipeline {
         }
 	    stage('Code Inspect'){
 		steps {    
-       		echo 'Now performing code Analysis'
+       		echo 'Now performing code Analysis '
 		bat label: 'code-Analysis-Step1', script: '"C:\\soft\\sonar-scanner-msbuild-5.1.0.28487-net46\\SonarScanner.MSBuild.exe" begin /k:"AspWithNUnit"'
 		bat label: 'code-Analysis-Step2', script: '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" C:\\Users\\Administrator\\.jenkins\\workspace\\test2\\AspWithNUnit.sln /t:Rebuild'
 		bat label: 'code-Analysis-Step3', script: '"C:\\soft\\sonar-scanner-msbuild-5.1.0.28487-net46\\SonarScanner.MSBuild.exe" end'
