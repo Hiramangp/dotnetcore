@@ -48,7 +48,7 @@ pipeline {
       		}
    	}
 	    stage("Deploy"){
-      steps {
+      steps { 
         script {
           try {
             	echo 'Trying to deploy release patch...'
