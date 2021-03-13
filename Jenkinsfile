@@ -29,17 +29,6 @@ pipeline {
        		println 'Success'
 		}
     	}
-	    stage('deploy'){
-	    script {
-		    steps {  
- 	 	try {
-      		sh 'do your stuff'
-  		} catch (Exception e) {
-      		echo 'Exception occurred: ' + e.toString()
-     	 	sh 'Handle the exception!'
-  		}
-		}
-	    }
-	}
+	  
     }
 }
