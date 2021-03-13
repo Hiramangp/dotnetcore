@@ -63,4 +63,15 @@ pipeline {
     }
 	    
     }
+	def createJira(){
+    withEnv(['JIRA_SITE=JIRA Pipeline UAT']){
+        def failIssue = [fields: [project: [id: 'SDGAPP'],
+                        summary: 'SDGAPP Jenkins execution bug',
+                        description: 'SDGAPP has failed. Please do the needful',
+                        issuetype: [name: 'Bug']]]
+        response = jiraNewIssue issue: failIssue
+        echo response.successful.toString()
+        echo response.data.toString()
+    }
+}
 }
