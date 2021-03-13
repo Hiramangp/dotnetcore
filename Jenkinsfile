@@ -29,6 +29,13 @@ pipeline {
        		println 'Success'
 		}
     	}
-	  
+	    stage('Automated Functional Testing'){
+		steps {  
+    		echo 'Now performing FTA'
+    		build 'FTA'
+    		println 'Success'
+		}
+   	 }
+	    
     }
 }
