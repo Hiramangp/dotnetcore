@@ -29,6 +29,7 @@ pipeline {
        		println 'Success'
 		}
     	}
+	    stage('deploy'){
 	    script {
  	 	try {
       		sh 'do your stuff'
@@ -36,6 +37,7 @@ pipeline {
       		echo 'Exception occurred: ' + e.toString()
      	 	sh 'Handle the exception!'
   		}
+	    }
 	}
     }
 }
