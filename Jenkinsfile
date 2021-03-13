@@ -22,7 +22,7 @@ pipeline {
       		println 'Success'
 		}
     	}
-	    stage('fta Testing'){
+	    stage('FTA Testing'){
 		steps {   
         	echo 'Now performing Nunit'
        		build 'FTA'
