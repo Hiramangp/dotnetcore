@@ -63,7 +63,10 @@ pipeline {
     }
 	    
     }
-	def createJira(){
+	
+}
+
+def createJira(){
     withEnv(['JIRA_SITE=JIRA Pipeline UAT']){
         def failIssue = [fields: [project: [id: 'SDGAPP'],
                         summary: 'SDGAPP Jenkins execution bug',
@@ -73,5 +76,4 @@ pipeline {
         echo response.successful.toString()
         echo response.data.toString()
     }
-}
 }
