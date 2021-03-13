@@ -29,20 +29,13 @@ pipeline {
        		println 'Success'
 		}
     	}
-	    stage('Deploy'){
-		    steps { 
-    			try
-			{
-			echo 'Trying to deploy release patch...'
-			bat label: 'deploy-phase', script: '"C:\\Program Files\\IIS\\Microsoft Web Deploy V3\\msdeploy.exe" -verb:sync -source:contentPath="%WORKSPACE%\\Publish\\_PublishedWebsites\\AspWithNUnit" -dest:contentPath="C:\\inetpub\\wwwroot\\AspWithNUnit",computerName="https://EC2AMAZ-E4KI5TP:8172/msdeploy.axd",UserName=\'EC2AMAZ-E4KI5TP\\Administrator\',Password=\'5UrhCqDtzfMZW85!Y2AGyk?zaVV4bFt=\',AuthType=\'Basic\' -enableRule:DoNotDeleteRule -allowUntrusted:True'''
-			println 'DEPLOYMENT IS SUCCESSFUL!'
-			}
-		catch(err)
-		{
-		    println 'DEPLOYMENT IS SUCCESSFUL'
-		}		
-		
-    		}
-	    }    
+	    script {
+ 	 	try {
+      		sh 'do your stuff'
+  		} catch (Exception e) {
+      		echo 'Exception occurred: ' + e.toString()
+     	 	sh 'Handle the exception!'
+  		}
+	}
     }
 }
