@@ -22,17 +22,17 @@ pipeline {
       		println 'Success'
 		}
     	}
-	    stage('Unit Testing'){
+	    stage('fta Testing'){
 		steps {   
         	echo 'Now performing Nunit'
-       		build 'Nunit'
+       		build 'FTA'
        		println 'Success'
 		}
     	}
-	    stage('Automated Functional Testing'){
+	    stage('Nuint  Testing'){
 		steps {  
     		echo 'Now performing FTA'
-    		build 'FTA'
+    		build 'Nunit'
     		println 'Success'
 		}
    	 }
