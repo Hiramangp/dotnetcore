@@ -31,11 +31,8 @@ pipeline {
     	}
 	    stage('Nuint  Testing'){
 		steps {  
-    		echo 'Now performing FTA'
-		try
-		{
-    		build 'Nunit'
-		} catch(err){}
+    		echo 'Now performing FTA'		
+    		build 'Nunit'		
     		println 'Success'
 		}
    	 }
