@@ -41,7 +41,7 @@ pipeline {
 		{
 		    println 'DEPLOYMENT IS SUCCESSFUL'
 		}		
-		currentBuild.displayName = "${env.BUILD_TIMESTAMP}"
+		
     		}
 	    }    
     }
