@@ -5,7 +5,8 @@ pipeline {
             steps {
 		    deleteDir()
                   git branch: 'main', credentialsId: 'srsave', url: 'https://github.com/srsave/AspWithNUnit.git'
-		    sh 'git log --oneline -1 ${GIT_COMMIT}' 
+		   // sh 'git log --oneline -1 ${GIT_COMMIT}' 
+		      def commitMessages = ${GIT_COMMIT}
             }
 	}
     }
