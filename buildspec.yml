@@ -24,7 +24,7 @@ phases:
       - echo Publish started on `date`
       - dotnet publish -c Release -r win10-x64 -o ./build_output ${PROJECT}.csproj --self-contained false
       - ls -l
-      - cp appspec.yml ./build_output
+      - cp appspec.yml ./build_output    
       - mkdir ./build_output/scripts
       - cp scripts/* ./build_output/scripts/
       - ls -l build_output/scripts
